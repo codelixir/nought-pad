@@ -1,6 +1,8 @@
 from django.urls import path
-from . import views
+from .views import HomeView, NoteView
 
 urlpatterns = [
-    path('', views.home),
+    path('', HomeView.as_view(), name="home"),
+    path('note/<int:pk>', NoteView.as_view(), name="note-details")
+    # <int:pk> => here pk is the primary key
 ]

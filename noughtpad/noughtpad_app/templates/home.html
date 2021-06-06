@@ -1,1 +1,11 @@
-<h1>Hello World!</h1>
+<h1>NoughtPad</h1>
+
+<ul>
+  {% for note in object_list %}
+  <li>
+    <a href="{% url 'note-details' note.pk %}">{{ note.title }} </a> - {{
+    note.author }} <br />
+    {{ note.body }}
+  </li>
+  {% endfor %}
+</ul>
