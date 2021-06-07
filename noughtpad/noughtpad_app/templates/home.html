@@ -1,11 +1,16 @@
+{% extends 'base.html' %} {% block title %} NoughtPad - HOME {% endblock %}
+{%block content %}
+
 <h1>NoughtPad</h1>
 
 <ul>
   {% for note in object_list %}
   <li>
-    <a href="{% url 'note-details' note.pk %}">{{ note.title }} </a> - {{
-    note.author }} <br />
+    <a href="{% url 'note-details' note.pk %}">{{ note.title }} </a>
+    - {{ note.author }} <br />
     {{ note.body }}
   </li>
   {% endfor %}
 </ul>
+
+{% endblock %}
