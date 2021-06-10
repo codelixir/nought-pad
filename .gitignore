@@ -115,6 +115,7 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+.prettierignore
 
 # MacOS Desktop Services
 .DS_Store

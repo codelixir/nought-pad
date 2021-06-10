@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -11,5 +12,6 @@ class Note(models.Model):
     def __str__(self):
         return self.title + " | " + str(self.author)
 
-    # def __init__(self):
-    #     ...
+    # this method is required to submit the form
+    def get_absolute_url(self):
+        return reverse("note-details", kwargs={"pk": self.pk})
