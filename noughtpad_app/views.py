@@ -2,6 +2,7 @@ from django.db.models.fields import PositiveBigIntegerField
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Note
+from .forms import NoteForm
 
 
 class HomeView(ListView):
@@ -19,5 +20,5 @@ class NoteView(DetailView):
 class AddNoteView(CreateView):
     'Add a new note'
     model = Note
+    form_class = NoteForm
     template_name = 'add_note.html'
-    fields = '__all__'  # puts all fields defined in models.py

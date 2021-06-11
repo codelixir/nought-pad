@@ -5,11 +5,13 @@
 {% block content %}
 
 <h1>Create New Note</h1>
-<br><br>
+<br>
 
 <form method="POST">
+    <div class="form-group">
     {% csrf_token %}
     {{ form.as_p }}
     <button class="btn btn-dark">Submit</button>
+    </div>
 
 {% endblock %}
