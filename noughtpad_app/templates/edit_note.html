@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %} Update Note {% endblock %}
+{% block title %} {{ note.title }} {% endblock %}
 
 {% block content %}
 
@@ -9,9 +9,10 @@
 
 <form method="POST">
     <div class="form-group">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-dark">Update</button>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark">Update</button>
     </div>
+</form>
 
 {% endblock %}

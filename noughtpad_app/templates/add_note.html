@@ -9,9 +9,10 @@
 
 <form method="POST">
     <div class="form-group">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-dark">Submit</button>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-dark">Submit</button>
     </div>
+</form>
 
 {% endblock %}
