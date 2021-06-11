@@ -117,5 +117,5 @@ GitHub.sublime-settings
 .history
 .prettierignore
 
-# MacOS Desktop Services
+# MacOS Desktop Services #
 .DS_Store
