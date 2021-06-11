@@ -1,8 +1,7 @@
-from django.db.models.fields import PositiveBigIntegerField
-from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+#from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Note
-from .forms import NoteForm
+from .forms import AddNoteForm, EditNoteForm
 
 
 class HomeView(ListView):
@@ -20,5 +19,12 @@ class NoteView(DetailView):
 class AddNoteView(CreateView):
     'Add a new note'
     model = Note
-    form_class = NoteForm
+    form_class = AddNoteForm
     template_name = 'add_note.html'
+
+
+class EditNoteView(UpdateView):
+    'Edit an existing note'
+    model = Note
+    form_class = EditNoteForm
+    template_name = 'edit_note.html'
