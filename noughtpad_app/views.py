@@ -9,6 +9,7 @@ class HomeView(ListView):
     'Render the Homepage'
     model = Note
     template_name = 'home.html'
+    ordering = ['-timestamp']
 
 
 class NoteView(DetailView):
