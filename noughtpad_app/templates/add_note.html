@@ -7,12 +7,16 @@
 <h1>Create New Note</h1>
 <br>
 
-<form method="POST">
-    <div class="form-group">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-dark">Submit</button>
-    </div>
-</form>
+{% if user.is_authenticated %}
+    <form method="POST">
+        <div class="form-group">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-dark">Submit</button>
+        </div>
+    </form>
+{% else %}
+    <strong>You must be logged in to perform this operation.</strong>
+{% endif %}
 
 {% endblock %}

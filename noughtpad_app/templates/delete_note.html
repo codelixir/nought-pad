@@ -7,15 +7,19 @@
 <h1>Delete Note</h1>
 <br>
 
-<form method="POST">
-    <div class="form-group">
-        {% csrf_token %}
-        <strong>Are you sure you want to delete "{{ note.title }}"?</strong>
-        <br><br>
-        <button class="btn btn-danger">Delete</button>
-        <a href="{% url 'note-details' note.pk %}" class="btn btn-primary" role="button">Cancel</a>
-    <div class="form-group">
-</form>
+{% if user.is_authenticated %}
+    <form method="POST">
+        <div class="form-group">
+            {% csrf_token %}
+            <strong>Are you sure you want to delete "{{ note.title }}"?</strong>
+            <br><br>
+            <button class="btn btn-danger">Delete</button>
+            <a href="{% url 'note-details' note.pk %}" class="btn btn-primary" role="button">Cancel</a>
+        <div class="form-group">
+    </form>
+{% else %}
+    <strong>You must be logged in to perform this operation.</strong>
+{% endif %}
 
 
 {% endblock %}

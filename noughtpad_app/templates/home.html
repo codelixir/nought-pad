@@ -7,14 +7,16 @@
 <h1>NoughtPad</h1>
 <br>
 
-<ul>
   {% for note in object_list %}
-  <li>
-    <a href="{% url 'note-details' note.pk %}"> {{ note.title }} </a>
-    - {{ note.author }} <br />
-    {{ note.body }}
-  </li>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ note.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ note.author }}</h6>
+      <p class="card-text">{{ note.body | slice:":280" }} ...</p>
+      <a href="{% url 'note-details' note.pk %}" class="card-link">Read More</a>
+    </div>
+  </div>
+  <br>
   {% endfor %}
-</ul>
 
 {% endblock %}
