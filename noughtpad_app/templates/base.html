@@ -21,7 +21,11 @@
   <body>
     <!--Navbar Start-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="{% url 'home' %}">NoughtPad</a>
+      <a class="navbar-brand" href="{% url 'home' %}">
+        {% comment %} {% load static %}
+        <img src="{% static 'noughtpad_app/noughtpad_light_30.png' %}" alt="0" width="30" height="30" class="d-inline-block align-text-top"> {% endcomment %}
+        NoughtPad
+      </a>
       <button
         class="navbar-toggler"
         type="button"
