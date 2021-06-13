@@ -11,14 +11,14 @@
     <form method="POST">
         <div class="form-group">
             {% csrf_token %}
-            <strong>Are you sure you want to delete "{{ note.title }}"?</strong>
+            <h5>Are you sure you want to delete "{{ note.title }}"?</h5>
             <br><br>
             <button class="btn btn-danger">Delete</button>
             <a href="{% url 'note-details' note.pk %}" class="btn btn-primary" role="button">Cancel</a>
         <div class="form-group">
     </form>
 {% else %}
-    <strong>You must be logged in to perform this operation.</strong>
+    <h5>You must be logged in to perform this operation.</h5>
 {% endif %}
 
 
