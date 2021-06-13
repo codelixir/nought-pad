@@ -13,6 +13,22 @@
 <p>{{note.body}}</p>
 
 <br><br>
+{% if user.is_authenticated %}
+<form action="{% url 'like-note' note.pk %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" name="note_id" value="{{ note.id }}" class="btn {{ like_button }}">
+        <i class="fa-solid fa-thumbs-up"></i>
+    </button> &nbsp; {{ total_likes }} Like(s)
+</form>
+{% else %}
+<button type="button" class="btn btn-primary" disabled>
+        <i class="fa-solid fa-thumbs-up"></i>
+</button> &nbsp; {{ total_likes }} Like(s) <br>
+<small>You must log in to like a post.</small>
+{% endif %}
+
+
+<br><hr><br>
 <a href="{% url 'home' %}" class="btn btn-dark">Back</a>
 {% if user.id == note.author.id %}
     <a href="{% url 'edit-note' note.pk %}" class="btn btn-primary">Edit</a>
