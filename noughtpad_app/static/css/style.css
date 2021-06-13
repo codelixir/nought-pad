@@ -1,3 +1,12 @@
 .helptext {
     color: #888
 }
+
+.errorlist {
+    list-style-type: none;
+    padding: 0
+}
+
+.errorlist>li {
+    color: #dc3545
+}

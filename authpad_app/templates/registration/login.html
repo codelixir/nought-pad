@@ -10,7 +10,15 @@
 <form method="POST">
     <div class="form-group">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            <div class="mb-3">
+                {{ field.label_tag }}
+                <input class="form-control col-5" id="{{ field.id_for_label }}" name="{{ field.html_name }}" type="{{ field.widget_type }}" /> 
+                {{ field.errors }}
+            </div>
+        {% endfor %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
         <button class="btn btn-dark">Login</button>
     </div>
 </form>
