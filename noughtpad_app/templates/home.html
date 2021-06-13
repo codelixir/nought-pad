@@ -3,8 +3,9 @@
 {% block title %} NoughtPad - HOME {% endblock %}
 
 {%block content %}
-
-<h1>NoughtPad</h1>
+{% load static %}
+<h1><img src="{% static 'noughtpad_app/noughtpad_dark.svg' %}" alt="" width="48" class="d-inline-block align-top">
+NoughtPad</h1>
 <br>
 
   {% for note in object_list %}
