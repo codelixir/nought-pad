@@ -56,6 +56,9 @@
           </li>
         {% endif %}  
         </ul>
+        {% if user.is_authenticated %}
+          <div class="text-light">Logged in as {{ user.username }}</div>
+        {% endif %}
       </div>
     </nav>
     <!--Navbar End-->
