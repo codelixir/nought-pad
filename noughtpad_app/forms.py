@@ -10,7 +10,7 @@ class AddNoteForm(forms.ModelForm):
         fields = ['title', 'author', 'body']
         widgets = {
             'title': forms.TextInput(attrs={"class": "form-control"}),
-            'author': forms.Select(attrs={"class": "form-control"}),
+            'author': forms.TextInput(attrs={"class": "form-control", "id": "author_field", "type": "hidden"}),
             'body': forms.Textarea(attrs={"class": "form-control"})
         }
 

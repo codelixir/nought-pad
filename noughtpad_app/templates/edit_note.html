@@ -7,7 +7,7 @@
 <h1>Update Note</h1>
 <br>
 
-{% if user.is_authenticated %}
+{% if user.id == note.author.id %}
     <form method="POST">
         <div class="form-group">
             {% csrf_token %}
@@ -16,7 +16,7 @@
         </div>
     </form>
 {% else %}
-    <h5>You must be logged in to perform this operation.</h5>
+    <h5>Only the author can perform this operation.</h5>
 {% endif %}
 
 {% endblock %}

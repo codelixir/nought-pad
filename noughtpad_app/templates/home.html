@@ -14,6 +14,10 @@
       <h6 class="card-subtitle mb-2 text-muted">{{ note.author }}</h6>
       <p class="card-text">{{ note.body | slice:":200" }} ...</p>
       <a href="{% url 'note-details' note.pk %}" class="card-link">Read More</a>
+      {% if user.id == note.author.id %}
+        <a href="{% url 'edit-note' note.pk %}" class="card-link">Edit</a>
+        <a href="{% url 'delete-note' note.pk %}" class="card-link text-danger">Delete</a>
+      {% endif %}
     </div>
   </div>
   <br>

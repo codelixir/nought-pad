@@ -15,6 +15,12 @@
             <button class="btn btn-dark">Submit</button>
         </div>
     </form>
+
+    <script>
+        var name = '{{user.id}}';
+        document.getElementById("author_field").value = name;
+    
+    </script>
 {% else %}
     <h5>You must be logged in to perform this operation.</h5>
 {% endif %}
