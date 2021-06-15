@@ -64,7 +64,7 @@
         </ul>
         {% if user.is_authenticated %}
           <div align="right">
-          <a class="nav-link nav-item text-light" href="{% url 'edit-profile' %}">Logged in as {{ user.username }}</a>
+            <a class="nav-link nav-item text-light" href="{% url 'edit-profile' %}">Logged in as {{ user.username }}</a>
           <div>
         {% endif %}
       </div>

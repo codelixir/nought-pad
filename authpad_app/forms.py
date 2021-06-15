@@ -29,3 +29,4 @@ class EditProfileForm(UserChangeForm):
             self.fields[field].widget.attrs['class'] = "form-control col-5"
 
         self.fields['password'].help_text = "You can change the password using <a href='../password/'>this form</a>."
+        self.fields['username'].help_text = None
