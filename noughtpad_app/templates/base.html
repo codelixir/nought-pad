@@ -63,7 +63,9 @@
         {% endif %}  
         </ul>
         {% if user.is_authenticated %}
-          <div class="text-light">Logged in as {{ user.username }}</div>
+          <div align="right">
+          <a class="nav-link nav-item text-light" href="{% url 'edit-profile' %}">Logged in as {{ user.username }}</a>
+          <div>
         {% endif %}
       </div>
     </nav>
