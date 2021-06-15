@@ -13,7 +13,11 @@ NoughtPad</h1>
     <div class="card-body">
       <h5 class="card-title">{{ note.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ note.author }}</h6>
-      <p class="card-text">{{ note.body | striptags | slice:":200" | safe }} ...</p>
+      <p class="card-text"> {% with rawtext=note.body|striptags %}
+        {% with plaintext=rawtext|safe %}
+          {{ plaintext | slice:":200" }} ...
+        {% endwith %}
+      {% endwith %}</p>
       <a href="{% url 'note-details' note.pk %}" class="card-link">Read More</a>
       {% if user.id == note.author.id %}
         <a href="{% url 'edit-note' note.pk %}" class="card-link">Edit</a>
