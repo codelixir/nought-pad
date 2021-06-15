@@ -16,4 +16,8 @@ class UserEditView(UpdateView):
     success_url = reverse_lazy('login')
 
     def get_object(self):
-        return self.request.user
+        user = self.request.user
+        if user.is_authenticated:
+            return self.request.user
+        else:
+            return None
