@@ -10,7 +10,10 @@
 <small>{{ note.timestamp }} UTC</small>
 <br>
 <hr>
-<p>{{note.body | safe}}</p>
+{% if note.banner %}
+    <img src="{{ note.banner.url }}" height="300">
+{% endif %}
+<br><br><p>{{note.body | safe}}</p>
 
 <br><br>
 {% if user.is_authenticated %}

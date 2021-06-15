@@ -7,6 +7,8 @@ from ckeditor.fields import RichTextField
 class Note(models.Model):
     'Model for a note/post in the blog'
     title = models.CharField(max_length=255)
+    banner = models.ImageField(
+        null=True, blank=True, upload_to="user_content/images/")
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = RichTextField()
     timestamp = models.DateTimeField(auto_now_add=True)

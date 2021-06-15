@@ -1,3 +1,4 @@
 Django==3.2.4
 fontawesomefree==5.15.3
 django-ckeditor==6.1.0
+Pillow==Pillow-8.2.0
