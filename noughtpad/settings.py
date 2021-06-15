@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'noughtpad_app',
     'authpad_app',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

@@ -10,7 +10,7 @@
 <small>{{ note.timestamp }} UTC</small>
 <br>
 <hr>
-<p>{{note.body}}</p>
+<p>{{note.body | safe}}</p>
 
 <br><br>
 {% if user.is_authenticated %}

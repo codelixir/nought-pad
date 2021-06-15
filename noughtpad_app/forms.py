@@ -9,7 +9,7 @@ class AddNoteForm(forms.ModelForm):
         model = Note
         fields = ['title', 'author', 'body']
         widgets = {
-            'title': forms.TextInput(attrs={"class": "form-control"}),
+            'title': forms.TextInput(attrs={"class": "form-control col-9"}),
             'author': forms.TextInput(attrs={"class": "form-control", "id": "author_field", "type": "hidden"}),
             'body': forms.Textarea(attrs={"class": "form-control"})
         }
@@ -20,6 +20,6 @@ class EditNoteForm(forms.ModelForm):
         model = Note
         fields = ['title', 'body']
         widgets = {
-            'title': forms.TextInput(attrs={"class": "form-control"}),
+            'title': forms.TextInput(attrs={"class": "form-control col-9"}),
             'body': forms.Textarea(attrs={"class": "form-control"})
         }
