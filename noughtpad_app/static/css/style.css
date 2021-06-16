@@ -10,3 +10,8 @@
 .errorlist>li {
     color: #dc3545
 }
+
+#banner {
+    max-height: 500px;
+    max-width: 100%;
+}

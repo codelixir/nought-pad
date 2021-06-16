@@ -11,9 +11,9 @@
 <br>
 <hr>
 {% if note.banner %}
-    <img src="{{ note.banner.url }}" height="300">
+    <img src="{{ note.banner.url }}" id="banner">
 {% endif %}
-<br><br><p>{{note.body | safe}}</p>
+<br><br>{{note.body | safe}}
 
 <br><br>
 {% if user.is_authenticated %}
