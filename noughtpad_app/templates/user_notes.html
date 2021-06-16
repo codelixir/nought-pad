@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ author.username }} | NoughtPad {% endblock %}
+
+{%block content %}
+<h1>{{ author.first_name }} {{ author.last_name }}</h1>
+<h5>{{author.email}}</h5>
+<br>
+
+  {% for note in author_notes %}
+  <div class="card w-75">
+    <div class="card-body">
+      <h5 class="card-title">{{ note.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">
+      {{ note.author.first_name }} {{ note.author.last_name }}</h6>
+      <p class="card-text"> {% with rawtext=note.body|striptags %}
+        {% with plaintext=rawtext|safe %}
+          {{ plaintext | slice:":200" }} ...
+        {% endwith %}
+      {% endwith %}</p>
+      <a href="{% url 'note-details' note.pk %}" class="card-link">Read More</a>
+      {% if user.id == note.author.id %}
+        <a href="{% url 'edit-note' note.pk %}" class="card-link">Edit</a>
+        <a href="{% url 'delete-note' note.pk %}" class="card-link text-danger">Delete</a>
+      {% endif %}
+    </div>
+    {% comment %} <div class="card-footer"><small>CATEGORY</small></div> {% endcomment %}
+  </div>
+  <br>
+  {% endfor %}
+
+{% endblock %}

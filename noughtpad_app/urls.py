@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import EditNoteView, HomeView, NoteView, AddNoteView, DeleteNoteView, LikeView
+from .views import EditNoteView, HomeView, NoteView, AddNoteView, DeleteNoteView, LikeView, UserNotesView
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
@@ -8,5 +8,6 @@ urlpatterns = [
     path('new_note/', AddNoteView.as_view(), name="add-note"),
     path('note/edit/<int:pk>', EditNoteView.as_view(), name="edit-note"),
     path('note/delete/<int:pk>', DeleteNoteView.as_view(), name="delete-note"),
-    path('note/like/<int:pk>', LikeView, name="like-note")
+    path('note/like/<int:pk>', LikeView, name="like-note"),
+    path('user/<int:pk>/notes', UserNotesView, name="user-notes"),
 ]

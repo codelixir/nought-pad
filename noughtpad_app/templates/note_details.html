@@ -5,8 +5,9 @@
 {%block content %}
 
 <h1>{{ note.title }}</h1>
-<small>{{ note.author }}</small>
-<br>
+<small>By</small> <a href="{% url 'user-notes' note.author.id %}" class="card-link">
+{{ note.author.first_name }} {{ note.author.last_name }}
+</a><br>
 <small>{{ note.timestamp }} UTC</small>
 <br>
 <hr>

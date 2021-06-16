@@ -1,7 +1,8 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.http import HttpResponseRedirect
+from django.contrib.auth.models import User
 from .models import Category, Note
 from .forms import AddNoteForm, EditNoteForm
 
@@ -14,6 +15,12 @@ def LikeView(request, pk):
     else:
         note.likes.add(user)
     return HttpResponseRedirect(reverse('note-details', args=[str(pk)]))
+
+
+def UserNotesView(request, pk):
+    author = get_object_or_404(User, id=pk)
+    author_notes = Note.objects.filter(author=author)
+    return render(request, 'user_notes.html', {'author': author, 'author_notes': author_notes})
 
 
 class HomeView(ListView):
