@@ -1,3 +1,7 @@
+.f9 {
+    background-color: #f9f9f9;
+}
+
 .helptext {
     color: #888
 }
@@ -14,4 +18,12 @@
 #banner {
     max-height: 500px;
     max-width: 100%;
+}
+
+#profile-pic {
+    object-fit: cover;
+    max-height: 200px;
+    width: auto;
+    margin: auto;
+    display: block;
 }
