@@ -3,12 +3,42 @@
 {% block title %} {{ author.username }} | NoughtPad {% endblock %}
 
 {%block content %}
-<h1>{{ author.first_name }} {{ author.last_name }}</h1>
-<h5>{{author.email}}</h5>
+
+<div class="card f9 border-light mb-3 w-75">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img class="rounded-circle" id="profile-pic" src="/media/user_content/images/gravatar_sq.png" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h1 class="card-title">{{ author.first_name }} {{ author.last_name }}</h1>
+        <h5 class="card-text text-muted">{{author.email}}</h5>
+        <p class="card-text">Student at IIIT-Hyderabad. Writer, coder and an avid sleeper.</p>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <!--Website-->
+          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
+          <i class="fas fa-lg fa-globe"></i></a>
+          <!--Facebook-->
+          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
+          <i class="fab fa-lg fa-facebook-f"></i></a>
+          <!--Twitter-->
+          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
+          <i class="fab fa-lg fa-twitter"></i></a>
+          <!--GitHub-->
+          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
+          <i class="fab fa-lg fa-github"></i></a>
+          <!--LinkedIn-->
+          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
+          <i class="fab fa-lg fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <br>
 
   {% for note in author_notes %}
-  <div class="card w-75">
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title">{{ note.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">
