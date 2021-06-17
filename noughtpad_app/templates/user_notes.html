@@ -7,7 +7,12 @@
 <div class="card f9 border-light mb-3 w-75">
   <div class="row g-0">
     <div class="col-md-4">
-      <img class="rounded-circle" id="profile-pic" src="/media/user_content/images/gravatar_sq.png" alt="...">
+      {% load static %}
+      {% with initial=author.first_name|lower|slice:":1" %}
+        {% with default_static='default/'|add:initial|add:'.png' %}
+          <img class="rounded-circle" id="profile-pic" src="{% static default_static %}" alt="...">
+        {% endwith %}
+      {% endwith %}
     </div>
     <div class="col-md-8">
       <div class="card-body">
