@@ -8,7 +8,7 @@
   <div class="row g-0">
     <div class="col-md-4">
       {% if author.profile.profile_pic %}
-          <img class="rounded-circle border" id="profile-pic" src="{{author.profile.profile_pic.url}}" alt="...">
+          <img class="rounded-circle" id="profile-pic" src="{{author.profile.profile_pic.url}}" alt="...">
       {% else %}
         {% load static %}
         {% with initial=author.first_name|lower|slice:":1" %}

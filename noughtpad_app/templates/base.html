@@ -58,7 +58,12 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 <li><a class="dropdown-item" href="{% url 'user-notes' user.id %}">My Notes</a></li>
-                <li><a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Profile</a></li>
+                {% if user.profile %}
+                  <li><a class="dropdown-item" href="{% url 'edit-profile' %}">Edit Profile</a></li>
+                {% else %}
+                  <li><a class="dropdown-item" href="{% url 'create-profile' %}">Edit Profile</a></li>
+                {% endif %}
+                <li><a class="dropdown-item" href="{% url 'settings' %}">Settings</a></li>
                 <div class="dropdown-divider"></div>
                 <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
               </ul>

@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, request
 from django.contrib.auth.models import User
-from .models import Category, Note
-from .forms import AddNoteForm, EditNoteForm
+from .models import Category, Note, Profile
+from .forms import AddNoteForm, EditNoteForm, EditProfileForm
 
 
 def LikeView(request, pk):
@@ -66,3 +66,30 @@ class DeleteNoteView(DeleteView):
     model = Note
     template_name = 'delete_note.html'
     success_url = reverse_lazy('home')
+
+
+class EditProfileView(UpdateView):
+    'Edit the public profile'
+    model = Profile
+    template_name = 'edit_profile.html'
+    form_class = EditProfileForm
+    success_url = reverse_lazy('home')
+
+    def get_object(self):
+        user = self.request.user
+        if user.is_authenticated:
+            return user.profile
+        else:
+            return None
+
+
+class CreateProfileView(CreateView):
+    'Edit the public profile when existing profile is blank'
+    model = Profile
+    template_name = 'edit_profile.html'
+    form_class = EditProfileForm
+    success_url = reverse_lazy('home')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)

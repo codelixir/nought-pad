@@ -18,7 +18,7 @@ class SignUpForm(UserCreationForm):
         self.fields['password1'].help_text = "Your password must contain at least 8 characters and can’t be entirely numeric."
 
 
-class EditProfileForm(UserChangeForm):
+class EditUserForm(UserChangeForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email']

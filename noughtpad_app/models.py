@@ -31,7 +31,7 @@ class Note(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    about = models.TextField()
+    about = models.TextField(blank=True)
     profile_pic = models.ImageField(
         null=True, blank=True, upload_to="user_content/profile_images/")
     website = models.CharField(max_length=255, null=True, blank=True)

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, UpdateView
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
-from .forms import SignUpForm, EditProfileForm, ChangePassForm
+from .forms import SignUpForm, EditUserForm, ChangePassForm
 
 
 class UserRegisterView(CreateView):
@@ -12,8 +12,8 @@ class UserRegisterView(CreateView):
 
 
 class UserEditView(UpdateView):
-    form_class = EditProfileForm
-    template_name = 'registration/edit_profile.html'
+    form_class = EditUserForm
+    template_name = 'registration/settings.html'
     success_url = reverse_lazy('login')
 
     def get_object(self):
