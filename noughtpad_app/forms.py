@@ -30,6 +30,16 @@ class EditProfileForm(forms.ModelForm):
         model = Profile
         fields = ['about', 'profile_pic', 'website', 'facebook',
                   'twitter', 'instagram', 'github', 'linkedin', 'link']
+        labels = {
+            'about': "About Me",
+            'website': "Personal Website",
+            'facebook': "Facebook Profile URL",
+            'twitter': "Twitter Profile URL",
+            'instagram': "Instagram Profile URL",
+            'github': "GitHub Profile URL",
+            'linkedin': "LinkedIn Profile URL",
+            'link': "Any Other Link",
+        }
         widgets = {
             'about': forms.Textarea(attrs={"class": "form-control col-9", "rows": 3}),
             'website': forms.TextInput(attrs={"class": "form-control col-9"}),
@@ -40,7 +50,3 @@ class EditProfileForm(forms.ModelForm):
             'linkedin': forms.TextInput(attrs={"class": "form-control col-9"}),
             'link': forms.TextInput(attrs={"class": "form-control col-9"}),
         }
-
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
-            self.fields["link"].label = "Any Other Link"
