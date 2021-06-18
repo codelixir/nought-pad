@@ -7,35 +7,63 @@
 <div class="card f9 border-light mb-3 w-75">
   <div class="row g-0">
     <div class="col-md-4">
-      {% load static %}
-      {% with initial=author.first_name|lower|slice:":1" %}
-        {% with default_static='default/'|add:initial|add:'.png' %}
-          <img class="rounded-circle" id="profile-pic" src="{% static default_static %}" alt="...">
+      {% if author.profile.profile_pic %}
+          <img class="rounded-circle border" id="profile-pic" src="{{author.profile.profile_pic.url}}" alt="...">
+      {% else %}
+        {% load static %}
+        {% with initial=author.first_name|lower|slice:":1" %}
+          {% with default_static='default/'|add:initial|add:'.png' %}
+            <img class="rounded-circle border" id="profile-pic" src="{% static default_static %}" alt="...">
+          {% endwith %}
         {% endwith %}
-      {% endwith %}
+      {% endif %}
     </div>
     <div class="col-md-8">
       <div class="card-body">
         <h1 class="card-title">{{ author.first_name }} {{ author.last_name }}</h1>
         <h5 class="card-text text-muted">{{author.email}}</h5>
-        <p class="card-text">Student at IIIT-Hyderabad. Writer, coder and an avid sleeper.</p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <!--Website-->
-          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
-          <i class="fas fa-lg fa-globe"></i></a>
-          <!--Facebook-->
-          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
-          <i class="fab fa-lg fa-facebook-f"></i></a>
-          <!--Twitter-->
-          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
-          <i class="fab fa-lg fa-twitter"></i></a>
-          <!--GitHub-->
-          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
-          <i class="fab fa-lg fa-github"></i></a>
-          <!--LinkedIn-->
-          <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank" class="btn btn-light">
-          <i class="fab fa-lg fa-linkedin-in"></i></a>
-        </div>
+        {% if author.profile %}
+          {% with profile=author.profile%}
+            <p class="card-text">{{profile.about}}</p>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              {% if profile.website %}
+              <!--Website-->
+              <a href="{{profile.website}}" target="_blank" class="btn btn-light">
+              <i class="fas fa-lg fa-globe"></i></a>
+              {% endif %}
+              {% if profile.facebook %}
+                <!--Facebook-->
+                <a href="{{profile.facebook}}" target="_blank" class="btn btn-light">
+                <i class="fab fa-lg fa-facebook-f"></i></a>
+              {% endif %}
+              {% if profile.twitter %}
+                <!--Twitter-->
+                <a href="{{profile.twitter}}" target="_blank" class="btn btn-light">
+                <i class="fab fa-lg fa-twitter"></i></a>
+              {% endif %}
+              {% if profile.instagram %}
+                <!--Instagram-->
+                <a href="{{profile.instagram}}" target="_blank" class="btn btn-light">
+                <i class="fab fa-lg fa-instagram"></i></a>
+              {% endif %}
+              {% if profile.github %}
+                <!--GitHub-->
+                <a href="{{profile.github}}" target="_blank" class="btn btn-light">
+                <i class="fab fa-lg fa-github"></i></a>
+              {% endif %}
+              {% if profile.linkedin %}
+                <!--LinkedIn-->
+                <a href="{{profile.linkedin}}" target="_blank" class="btn btn-light">
+                <i class="fab fa-lg fa-linkedin-in"></i></a>
+              {% endif %}
+              {% if profile.link %}
+                <!--Other-->
+                <a href="{{profile.link}}" target="_blank" class="btn btn-light">
+                <i class="fas fa-lg fa-link"></i></a>
+            {% endif %}</
+            div>
+          {% endwith %}
+        {% endif %}
       </div>
     </div>
   </div>
