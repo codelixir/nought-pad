@@ -42,7 +42,19 @@ Clone the repository:
 $ git clone https://github.com/codelixir/nought-pad.git
 $ cd nought-pad
 ```
-Now if you wish, you can create ans activate a virtual environment (recommended). Then install the dependencies:
+Now if you wish, you can create ans activate a virtual environment (recommended).
+
+You also need a Secret Key for Django. A good way to do it is storing `SECRET_KEY` as an environment variable.
+```sh
+$ export SECRET_KEY='your_secret_key'
+```
+and then change line 24 of `settings.py` to:
+```py
+SECRET_KEY = os.environ['SECRET_KEY']
+```
+Another way of doing it is to put it in line 1 of ['keys.py'](noughtpad/keys.py), thought this is not the best practice.
+
+Then install the dependencies:
 ```sh
 $ pip3 install -r requirements.txt
 ```
