@@ -119,3 +119,6 @@ GitHub.sublime-settings
 
 # MacOS Desktop Services #
 .DS_Store
+
+# secret key #
+noughtpad/keys.py
