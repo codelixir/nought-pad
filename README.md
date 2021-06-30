@@ -48,11 +48,11 @@ You also need a Secret Key for Django. A good way to do it is storing `SECRET_KE
 ```sh
 $ export SECRET_KEY='your_secret_key'
 ```
-and then change line 24 of `settings.py` to:
+and then change line 24 of [`settings.py`](noughtpad/settings.py) to:
 ```py
 SECRET_KEY = os.environ['SECRET_KEY']
 ```
-Another way of doing it is to put it in line 1 of ['keys.py'](noughtpad/keys.py), although this is not the best practice.
+Another way of doing it is to put it in line 1 of [`keys.py`](noughtpad/keys.py), although this is not the best practice.
 
 Then install the dependencies:
 ```sh
