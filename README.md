@@ -52,7 +52,7 @@ and then change line 24 of `settings.py` to:
 ```py
 SECRET_KEY = os.environ['SECRET_KEY']
 ```
-Another way of doing it is to put it in line 1 of ['keys.py'](noughtpad/keys.py), thought this is not the best practice.
+Another way of doing it is to put it in line 1 of ['keys.py'](noughtpad/keys.py), although this is not the best practice.
 
 Then install the dependencies:
 ```sh
