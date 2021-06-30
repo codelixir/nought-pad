@@ -121,4 +121,4 @@ GitHub.sublime-settings
 .DS_Store
 
 # secret key #
-noughtpad/keys.py
+**/keys.py
