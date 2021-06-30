@@ -1,6 +1,6 @@
 # NoughtPad <!-- omit in toc -->
 
-This is a basic blog website made using Django and Bootstrap.
+This is a basic blog website made using Django and Bootstrap. It is my first ever project in Django, hence the Nought(`[0]`) in NoughtPad.
 
 ## Table of Contents <!-- omit in toc -->
 - [Features](#features)
